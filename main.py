@@ -7,7 +7,7 @@ import requests
 from pydantic import BaseModel
 import uvicorn 
 
-app = FastAPI()
+app = FastAPI(__name__)
 
 @app.get("/")
 def hello():
@@ -94,7 +94,7 @@ async def predict_get(sk_id: str):
     else:
         return JSONResponse({"Réponse" : "Erreur"})
 
-@app.post("/data_customer/{sk_id}")
+@app.get("/data_customer/{sk_id}")
 async def data_customer(sk_id: str):
     """
     Parameters 
