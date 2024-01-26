@@ -7,7 +7,7 @@ import requests
 from pydantic import BaseModel
 import uvicorn 
 
-app = FastAPI(__name__)
+app = FastAPI()
 
 @app.get("/")
 def hello():
@@ -75,7 +75,7 @@ async def predict():
     return JSONResponse({"model": "lgbmc10_GridCV","list_client_id" : list(num_client.astype(str))})
 
 
-@app.get("/predict_get/{sk_id}")
+@app.get("/predict_get/")
 async def predict_get(sk_id: str):
     """
     Parameters
@@ -94,7 +94,7 @@ async def predict_get(sk_id: str):
     else:
         return JSONResponse({"Réponse" : "Erreur"})
 
-@app.get("/data_customer/{sk_id}")
+@app.get("/data_customer/")
 async def data_customer(sk_id: str):
     """
     Parameters 
