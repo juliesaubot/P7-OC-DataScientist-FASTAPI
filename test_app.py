@@ -40,7 +40,7 @@ def test_predict():
 
     #verifier qu'on a en retour les valeurs attendues
     assert data_response['model'] == "lightGBM"
-    assert idx_client.isin(list_client)
+    assert list_client.isin(lidx_client)
 
 
 
@@ -89,7 +89,7 @@ def test_data_customer():
     data_response = response.json()
     info = response.json()['data']
     df_info = pd.DataFrame(info)
-    
+
     #verifier qu'on a bien les champs Reponse et Proba_client
     assert 'status' in data_response 
     assert 'data' in data_response
@@ -97,4 +97,4 @@ def test_data_customer():
     #verifier qu'on a en retour les valeurs attendues
     assert data_response['status'] == "ok"
 
-    assert df_info['CODE_GENDER'] == 1
+    assert df_info['CODE_GENDER'] == "1"
