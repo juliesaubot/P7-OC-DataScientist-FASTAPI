@@ -72,7 +72,7 @@ async def predict():
     Returns
     liste des clients dans le fichier
     """
-    return JSONResponse({"model": "lgbmc10_GridCV","list_client_id" : list(num_client.astype(str))})
+    return JSONResponse({"model": "lightGBM","list_client_id" : list(num_client.astype(str))})
 
 
 @app.get("/predict_get/")
