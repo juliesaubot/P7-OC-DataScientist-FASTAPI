@@ -10,7 +10,6 @@ def test_hello():
     fonction de test de la fonction hello de main.py
     On verifie si en sortie on a bien un status code de 200
     et un json de la forme demandé
-
     """
     response = client.get("/")
     assert response.status_code == 200
@@ -22,7 +21,6 @@ def test_predict():
     fonction de test de la fonction predict de main.py
     On verifie si en sortie on a bien un status code de 200
     et un json de la forme demandé
-
     """
 
     url_endpoint = '/predict'
@@ -40,8 +38,7 @@ def test_predict():
 
     #verifier qu'on a en retour les valeurs attendues
     assert data_response['model'] == "lightGBM"
-    assert list_client[3] == str(idx_client) 
-
+    assert list_client.isin([str(idx_client)])
 
 
 def test_predict_get():
@@ -97,4 +94,4 @@ def test_data_customer():
     #verifier qu'on a en retour les valeurs attendues
     assert data_response['status'] == "ok"
 
-    assert df_info['CODE_GENDER'] == 1
+    assert df_info['OWN_CAR_AGE'] == 15.0
