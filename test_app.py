@@ -26,10 +26,12 @@ def test_predict():
 
     url_endpoint = '/predict'
     response = client.get(url_endpoint)
-    
+    idx_client = 104819
+
     assert response.status_code == 200
     
     data_response = response.json()
+    list_client = response.json()['list_client_id']
 
     #verifier qu'on a bien les champs Reponse et Proba_client
     assert 'model' in data_response 
@@ -37,6 +39,9 @@ def test_predict():
 
     #verifier qu'on a en retour les valeurs attendues
     assert data_response['model'] == "lightGBM"
+    assert idx_client.isin(list_client)
+
+
 
 def test_predict_get():
     """
@@ -48,8 +53,8 @@ def test_predict_get():
     url_endpoint = '/predict_get'
 
     idx_client = 104819
-
-    response = client.get(url_endpoint)
+    id = {"sk_id" : str(id_filter)}
+    response = client.get(url_endpoint, params = id)
 
     assert response.status_code == 200
 
@@ -73,7 +78,10 @@ def test_data_customer():
     """
 
     url_endpoint = '/data_customer'
-    response = client.get(url_endpoint)
+    idx_client = 104819
+    id = {"sk_id" : str(id_filter)}
+
+    response = client.get(url_endpoint, params = id)
     
     assert response.status_code == 200
     
@@ -86,4 +94,6 @@ def test_data_customer():
     #verifier qu'on a en retour les valeurs attendues
     assert data_response['status'] == "ok"
 
-
+    info = req.json()['data']
+    df_info = pd.DataFrame(info)
+    assert df_info['CODE_GENDER'] == 1
