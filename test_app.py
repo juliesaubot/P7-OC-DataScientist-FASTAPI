@@ -37,8 +37,15 @@ def test_predict():
     assert 'list_client_id' in data_response
 
     #verifier qu'on a en retour les valeurs attendues
+    #on verifie que le modele est bien indiqué
     assert data_response['model'] == "lightGBM"
-    assert str(idx_client).isin(list_client)
+    
+    assert type(list_client) == list 
+    #on verifie que l'id client est dans la liste
+    is_in_list = False
+    if str(idx_client) in list_client:
+        is_in_list = True
+    assert is_in_list == True 
 
 
 def test_predict_get():
