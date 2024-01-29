@@ -38,7 +38,7 @@ def test_predict():
 
     #verifier qu'on a en retour les valeurs attendues
     assert data_response['model'] == "lightGBM"
-    assert idx_client.isin(list_client_id)
+    assert idx_client.isin(list_client)
 
 
 def test_predict_get():
