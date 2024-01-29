@@ -21,7 +21,7 @@ def test_predict():
 
     url_endpoint = '/predict'
     response = client.get(url_endpoint)
-
+    
     assert response.status_code == 200
     #assert response.json() == {"model": "", "list_client_id": []}
 
