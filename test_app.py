@@ -38,7 +38,7 @@ def test_predict():
 
     #verifier qu'on a en retour les valeurs attendues
     assert data_response['model'] == "lightGBM"
-    assert list_client.isin([str(idx_client)])
+    assert idx_client.isin(list_client_id)
 
 
 def test_predict_get():
@@ -94,4 +94,4 @@ def test_data_customer():
     #verifier qu'on a en retour les valeurs attendues
     assert data_response['status'] == "ok"
 
-    assert df_info['OWN_CAR_AGE'] == 15.0
+    assert df_info['OWN_CAR_AGE'].values == 15.0
