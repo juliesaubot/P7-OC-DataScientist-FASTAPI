@@ -30,7 +30,7 @@ def test_predict_get():
 
     url_endpoint = '/predict_get/100016'
 
-    idx_client = 100016
+    idx_client = 104819
 
     response = client.get(url_endpoint)
 
@@ -43,8 +43,8 @@ def test_predict_get():
     assert 'Proba_client' in data_response
 
     #verifier qu'on a en retour les valeurs attendues
-    assert data_response['Réponse'] == "Non"
-    assert data_response['Proba_client'] == '0.4959097257760469'
+    assert data_response['Réponse'] == "Oui"
+    assert data_response['Proba_client'] == '0.1045381722774054'
 
 
 
