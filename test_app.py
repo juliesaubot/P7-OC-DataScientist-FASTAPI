@@ -53,7 +53,7 @@ def test_predict_get():
     url_endpoint = '/predict_get'
 
     idx_client = 104819
-    id = {"sk_id" : str(id_filter)}
+    id = {"sk_id" : str(idx_client)}
     response = client.get(url_endpoint, params = id)
 
     assert response.status_code == 200
@@ -79,7 +79,7 @@ def test_data_customer():
 
     url_endpoint = '/data_customer'
     idx_client = 104819
-    id = {"sk_id" : str(id_filter)}
+    id = {"sk_id" : str(idx_client)}
 
     response = client.get(url_endpoint, params = id)
     
