@@ -16,7 +16,6 @@ def test_hello():
     assert response.json() == {"message": "Hello World!"}
 
 
-
 def test_predict():
     """
     fonction de test de la fonction predict de main.py
