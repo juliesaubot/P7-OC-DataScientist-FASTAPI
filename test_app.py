@@ -1,6 +1,7 @@
 import pytest
 from main import app
 from fastapi.testclient import TestClient
+import pandas as pd
 
 client = TestClient(app)
 
@@ -86,7 +87,9 @@ def test_data_customer():
     assert response.status_code == 200
     
     data_response = response.json()
-
+    info = response.json()['data']
+    df_info = pd.DataFrame(info)
+    
     #verifier qu'on a bien les champs Reponse et Proba_client
     assert 'status' in data_response 
     assert 'data' in data_response
@@ -94,6 +97,4 @@ def test_data_customer():
     #verifier qu'on a en retour les valeurs attendues
     assert data_response['status'] == "ok"
 
-    info = req.json()['data']
-    df_info = pd.DataFrame(info)
     assert df_info['CODE_GENDER'] == 1
