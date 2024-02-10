@@ -38,8 +38,8 @@ with open("model.pkl", 'rb') as pickle_in:
 #Application du modèle lgbm avec seuil calculé précédemment et détermination de la probabilité
 y_predict_prob = grid_lgbm.predict_proba(X_test)[:,1]
 
-#Seuil métier optimal : 0.414
-y_predict = (grid_lgbm.predict_proba(X_test)[:,1] >= 0.414).astype(int)
+#Seuil métier optimal : 0.472
+y_predict = (grid_lgbm.predict_proba(X_test)[:,1] >= 0.472).astype(int)
 
 
 #Ajout de la probabilité et de la prédiction au dataframe X test non scalé 
@@ -56,8 +56,8 @@ print("Vérification que le modèle prédit les targets dans les mêmes proporti
 print(df['predict'].value_counts(normalize=True))
 
 print("Résultats dans le notebook :")
-print("0    0.61895")
-print("1    0.38105")
+print("0    0.68955")
+print("1    0.31045")
 
 #dataframe reduit pour faire un test de deploiement sur Heroku
 df.to_csv('data/df_streamlit.csv',index=False)
