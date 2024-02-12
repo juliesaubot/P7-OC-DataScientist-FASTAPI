@@ -39,7 +39,7 @@ jobs:
 
     - name: Test with pytest
       run: |
-        pytest
+        python -m pytest
 
     - name: Deploy to Heroku
       env:
