@@ -39,7 +39,7 @@ with open("model.pkl", 'rb') as pickle_in:
 y_predict_prob = grid_lgbm.predict_proba(X_test)[:,1]
 
 #Seuil métier optimal : 0.472
-y_predict = (grid_lgbm.predict_proba(X_test)[:,1] >= 0.472).astype(int)
+y_predict = (grid_lgbm.predict_proba(X_test)[:,1] >= 0.49).astype(int)
 
 
 #Ajout de la probabilité et de la prédiction au dataframe X test non scalé 
