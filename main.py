@@ -31,7 +31,7 @@ print('Dataframe de données à prédire :')
 print('X_test shape : ', X_test.shape)
 
 #on charge le modèle final
-with open("model.pkl", 'wb') as pickle_in:
+with open("model.pkl", 'rb') as pickle_in:
     print("utilisation du model lightgbm")
     grid_lgbm = pickle.load(pickle_in)
 
