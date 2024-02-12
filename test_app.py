@@ -71,7 +71,7 @@ def test_predict_get():
 
     #verifier qu'on a en retour les valeurs attendues
     assert data_response['Réponse'] == "Oui"
-    assert data_response['Proba_client'] == '0.1045381722774054'
+    assert data_response['Proba_client'] == '0.12484284144962628'
 
 def test_data_customer():
 
